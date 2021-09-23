@@ -1,6 +1,5 @@
 <html>
   <head>
-    <meta charset="UTF-8" />
     <title>구구단</title>
   </head>
   <body>
@@ -43,7 +42,7 @@
         return (
           <React.Fragment>
             <div>
-              {first} 掛け算 {second}は？
+              {first} 곱하기 {second}는?
             </div>
             <form onSubmit={onSubmitForm}>
               <input
@@ -52,7 +51,7 @@
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
-              <button>入力!</button>
+              <button>입력!</button>
             </form>
             <div id="result">{result}</div>
           </React.Fragment>

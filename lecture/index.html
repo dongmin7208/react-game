@@ -19,10 +19,22 @@
       class LikeButton extends React.Component {
         constructor(props) {
           super(props);
+          this.state = {
+            liked: false,
+          };
         }
 
         render() {
-          return e("button", null, "Like"); // <button>Like</button> 만들 겠다..
+          return e(
+            "button",
+            {
+              onClick: () => {
+                this.setState({ liked: true });
+              },
+              type: "submit",
+            },
+            this.state.liked === true ? "Liked" : "Like"
+          ); // <button onclick="onclick">Like</button> 만들 겠다..
         }
       }
     </script>

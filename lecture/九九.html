@@ -16,15 +16,13 @@
     <!--結果: <div id="root"> <button>Like</button></div>-->
     <script type="text/babel">
       class GuGuDan extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            first: Math.ceil(Math.random() * 9),
-            second: Math.ceil(Math.random() * 9),
-            value: "",
-            result: "",
-          };
-        }
+        state = {
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9),
+          value: "",
+          result: "",
+        };
+
         onSubmit = (e) => {
           e.preventDefault();
           if (
@@ -32,7 +30,7 @@
             this.state.first * this.state.second
           ) {
             this.setState({
-              result: "正答",
+              result: this.state.value + "正答",
               first: Math.ceil(Math.random() * 9),
               second: Math.ceil(Math.random() * 9),
               value: "",
@@ -52,7 +50,7 @@
 
         render() {
           return (
-            <div>
+            <React.Fragment>
               <div>
                 {this.state.first} 掛け算 {this.state.second}は？
               </div>
@@ -65,13 +63,20 @@
                 <button>入力!</button>
               </form>
               <div>{this.state.result}</div>
-            </div>
+            </React.Fragment>
           );
         }
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render(<GuGuDan />, document.querySelector("#root"));
+      ReactDOM.render(
+        <div>
+          <GuGuDan />
+          <GuGuDan />
+          <GuGuDan />
+        </div>,
+        document.querySelector("#root")
+      );
     </script>
   </body>
 </html>

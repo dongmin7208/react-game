@@ -30,22 +30,24 @@
             this.state.first * this.state.second
           ) {
             this.setState({
-              result: this.state.value + "正答",
+              result: "正答は :" + this.state.value,
               first: Math.ceil(Math.random() * 9),
               second: Math.ceil(Math.random() * 9),
               value: "",
             });
+            this.input.focus();
           } else {
             this.setState({
               result: "XX",
               value: "",
             });
+            this.input.focus();
           }
         };
         onChange = (e) => {
           this.setState({ value: e.target.value });
         };
-
+        input;
         // <!-- input.onchange = (e) => {console.log(e.target.value)}-->
 
         render() {
@@ -56,6 +58,9 @@
               </div>
               <form onSubmit={this.onSubmit}>
                 <input
+                  ref={(c) => {
+                    this.input = c;
+                  }}
                   type="number"
                   value={this.state.value}
                   onChange={this.onChange}

@@ -15,30 +15,63 @@
     <div id="root"></div>
     <!--結果: <div id="root"> <button>Like</button></div>-->
     <script type="text/babel">
-      class LikeButton extends React.Component {
+      class GuGuDan extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
-            liked: false,
+            first: Math.ceil(Math.random() * 9),
+            second: Math.ceil(Math.random() * 9),
+            value: "",
+            result: "",
           };
         }
+        onSubmit = (e) => {
+          e.preventDefault();
+          if (
+            parseInt(this.state.value) ===
+            this.state.first * this.state.second
+          ) {
+            this.setState({
+              result: "正答",
+              first: Math.ceil(Math.random() * 9),
+              second: Math.ceil(Math.random() * 9),
+              value: "",
+            });
+          } else {
+            this.setState({
+              result: "XX",
+              value: "",
+            });
+          }
+        };
+        onChange = (e) => {
+          this.setState({ value: e.target.value });
+        };
+
+        // <!-- input.onchange = (e) => {console.log(e.target.value)}-->
 
         render() {
           return (
-            <button
-              type="submit"
-              onClick={() => {
-                this.setState({ liked: true });
-              }}
-            >
-              {this.state.liked === true ? "Liked" : "Like"}
-            </button> //JSX( JS + XML)
+            <div>
+              <div>
+                {this.state.first} 掛け算 {this.state.second}は？
+              </div>
+              <form onSubmit={this.onSubmit}>
+                <input
+                  type="number"
+                  value={this.state.value}
+                  onChange={this.onChange}
+                />
+                <button>入力!</button>
+              </form>
+              <div>{this.state.result}</div>
+            </div>
           );
         }
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render(<LikeButton />, document.querySelector("#root"));
+      ReactDOM.render(<GuGuDan />, document.querySelector("#root"));
     </script>
   </body>
 </html>

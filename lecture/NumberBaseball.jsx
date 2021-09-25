@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Try from './Try';
 
-getNumbers = () => {  //숫자 네 개를 겹치지않고 랜덤하게 뽑는 함수
+function getNumbers() {  //숫자 네 개를 겹치지않고 랜덤하게 뽑는 함수
 
 };
 
@@ -32,7 +32,7 @@ class NumberBaseball extends Component {
             <>
                 <h1>{this.state.result}</h1>
                 <form onSubmit={this.onSubmitForm}>
-                    <input maxlength={4} value={this.state.value} onChange={this.onChangeInput} />
+                    <input maxLength={4} value={this.state.value} onChange={this.onChangeInput} />
                 </form>
                 <div>試投: {this.state.tries.length}</div>
                 <ul>
@@ -46,4 +46,4 @@ class NumberBaseball extends Component {
         )
     }
 }
-export default NumberBaseball; // import NumberBaseball
+export default NumberBaseball; // 이렇게 하면 이렇게 가져와야함.import NumberBaseball 디폴트는 한번만쓸수있음. 

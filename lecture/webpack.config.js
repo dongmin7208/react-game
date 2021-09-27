@@ -2,7 +2,7 @@ const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-  name: 'number-baseball-dev',
+  name: 'RSP',
   mode: 'development',
   devtool: 'inline-source-map',
   resolve: {
@@ -23,17 +23,19 @@ module.exports = {
           }],
           '@babel/preset-react',
         ],
-        plugins: ['react-refresh/babel'],
+        plugins: ["react-refresh/babel"]
       },
       exclude: path.join(__dirname, 'node_modules'),
     }],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin({
+        overlay: false,
+      })
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'app.js',
     publicPath: '/dist',
   },
   devServer: {

@@ -42,3 +42,4 @@ module.exports = NumberBaseball;
 })
 </ul>
 ```
+render() 안에는 setState 쓰는거아님

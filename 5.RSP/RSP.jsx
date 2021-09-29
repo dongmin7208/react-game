@@ -23,6 +23,29 @@ const computerChoice = (imgCoord) => {
     })[0];
 };
 
+//              result, imgCoord, score
+//componentDidMount
+//componentDidUpdate
+//componentWillUnmount
+
+//클래스에서는 이렇게 한번에 한다면
+// componentDidMount(){
+//     this.setState({
+//         imgCoord: 3,
+//         score: 1,
+//         result:2,
+//     })
+// }
+//hooks에서는 이렇게
+// useEffect(()=> {
+//     setImgCoord();
+//     setScore();
+// }, [imgCoord, score]);
+// useEffect(() => {
+//     setResult();
+// }, [result]);
+
+
 const RSP = () => {
     const [result, setResult] = useState('');
     const [imgCoord, setImgCoord] = useState(rspCoords.바위);
@@ -35,7 +58,9 @@ const RSP = () => {
             clearInterval(interval.current);
         }
     }, [imgCoord]);
-
+    //imgCoord 넣으면 componentDidUpdate 역할
+    //[]     넣으면 componentDidMount 
+    //[]배열안에 다시 실행할 값만 넣으세요 !!
     const changeHand = () => {
         if (imgCoord === rspCoords.바위) {
             setImgCoord(rspCoords.가위);
@@ -75,6 +100,7 @@ const RSP = () => {
             <div>現在 {score}点</div>
         </>
     );
-}
+
+};
 
 export default RSP;

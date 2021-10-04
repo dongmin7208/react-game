@@ -21,19 +21,6 @@ const Lotto = () => {
     const [bonus, setBonus] = useState(null);
     const [redo, setRedo] = useState(false);
     const timeouts = useRef([]);
-    //ajax use EX)
-    // //componentDidUpdate에 ajax를 사용하고싶을때
-    // useEffect( () => {
-    //     //ajax
-    // }, []);
-    // const mounted = useRef( false);
-    // useEffect( () => {
-    //     if (!mounted.current) {
-    //         mounted.current = true;
-    //     }else {
-    //         //ajax
-    //     }
-    // }, [바뀌는값])//componentDidUpdate만,com
 
     useEffect(() => {
         console.log('useEffect');

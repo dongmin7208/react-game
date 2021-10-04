@@ -7,11 +7,11 @@
 
 
 ## 九九ゲーム
-![check]pohoto/九九ゲーム.png)
+![check](pohoto/九九ゲーム.png)
 ## しりとり
-![check]pohoto/しりとり/2.png)
+![check](pohoto/しりとり/2.png)
 ## responseCheck
-![check]pohoto/responseCheck/3.png)
+![check](pohoto/responseCheck/3.png)
 ## RSP
 ![lotto](pohoto/RSP/1.gif)
 ## lotto
